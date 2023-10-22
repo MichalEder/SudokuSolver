@@ -58,3 +58,30 @@ def find_empty(board: List[List[int]]) -> Tuple[int, int]:
         for j in range(len(board[0])):
             if board[i][j] == 0:
                 return (i, j)  # row, col
+
+def solve(board: List[List[int]]) -> bool:
+    """
+    Solve the Sudoku puzzle using a backtracking algorithm.
+
+    Args:
+        board (List[List[int]]): The Sudoku board to be solved.
+
+    Returns:
+        bool: True if the puzzle is solvable, False if it's not.
+    """
+    find = find_empty(board)
+    if not find:
+        return True
+    else:
+        row, col = find
+
+    for i in range(1,10):
+        if valid(board, i, (row, col)):
+            board[row][col] = i
+
+            if solve(board):
+                return True
+
+            board[row][col] = 0
+
+    return False
