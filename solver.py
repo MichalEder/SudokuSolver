@@ -118,3 +118,24 @@ def valid(board: List[List[int]], num: int, pos: Tuple[int, int]) -> bool:
                 return False
 
     return True
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python sudoku_solver.py 'sudoku_string'")
+    else:
+        sudoku_string = sys.argv[1]
+        try:
+            game_board_start = parse_input(sudoku_string)
+            print("Input Sudoku:")
+            print_board(game_board_start)
+            solved_solution = solve(game_board_start)
+            if solved_solution:
+                print("Solved Sudoku:")
+                print_board(game_board_start)
+            else:
+                print("This Sudoku is unsolvable")
+
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+        except TypeError as e:
+            print(f"Invalid input: {e}")
