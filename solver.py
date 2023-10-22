@@ -43,3 +43,18 @@ def print_board(board: List[List[int]]) -> None:
                 print(board[i][j])
             else:
                 print(str(board[i][j]) + " ", end="")
+
+def find_empty(board: List[List[int]]) -> Tuple[int, int]:
+    """
+        Find the first empty cell (cell with value 0) in the Sudoku board.
+
+        Args:
+            board (List[List[int]]): The Sudoku board.
+
+        Returns:
+            Tuple[int, int]: A tuple (row, col) of the first empty cell's coordinates.
+    """
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            if board[i][j] == 0:
+                return (i, j)  # row, col
