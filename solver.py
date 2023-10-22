@@ -23,3 +23,23 @@ def parse_input(input_str: str) -> List[List[int]]:
         row = [int(input_str[i * 9 + j]) for j in range(9)]
         board.append(row)
     return board
+
+def print_board(board: List[List[int]]) -> None:
+    """
+        Print the Sudoku board in a human-readable format.
+
+        Args:
+            board (List[List[int]]): The Sudoku board to be printed.
+    """
+    for i in range(len(board)):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - -  ")
+
+        for j in range(len(board[0])):
+            if j % 3 == 0 and j != 0:
+                print(" | ", end="")
+
+            if j == 8:
+                print(board[i][j])
+            else:
+                print(str(board[i][j]) + " ", end="")
