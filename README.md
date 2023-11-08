@@ -17,7 +17,7 @@ This Python script provides a command-line interface to solve Sudoku puzzles. It
 
 Change your directory to the project folder:
 
-Run the script with a Sudoku puzzle as a command-line argument. The puzzle should be a string of 81 characters where '0' represents empty cells:
+Run the script with a Sudoku puzzle as a command-line argument. The puzzle should be a string of 81 (row after row) characters where '0' represents empty cells:
 
 python sudoku_solver.py '400006000306500000510370000003900200000020000060001700004500102000003807000100506'
 The script will attempt to solve the puzzle and provide the result.
